@@ -28,6 +28,148 @@ A curated and continuously growing collection of AI case studies relevant to act
 ## 2026
 <br>
 
+### Agentic AI and Retrieval-Augmented Models in Straight-Through Underwriting
+- **Author:** Robert Richardson, Josh Meyers, Brian Hartman, David Sandberg
+- **Date:** 2026-07-08
+- **Resources:** [Article (arXiv)](https://arxiv.org/abs/2607.07858), [Code (GitHub)](https://github.com/drbob-richardson/agentic-bop-underwriting)
+- **Type:** Case Study
+- **Level:** 🟨🟨⬜ Advanced
+- **Field:** P&C
+- **Primary Topics:** `Underwriting Automation`, `Agentic AI`, `Retrieval-Augmented Generation`, `Large Language Models`
+- **Secondary Topics:** `Multi-Agent Systems`, `AI Governance`, `Human-in-the-Loop`, `Synthetic Data`
+- **Language(s):** English
+- **Programming Language(s):** Python
+- **Methods and/or Models:** Three pipelines compared on 635 synthetic Business Owner Policy applications (127 business types, five scenario categories incl. multi-step reasoning and missing information): single-LLM baseline, naive RAG over a 143-page synthetic underwriting guidebook, and multi-agent Agentic RAG with targeted retrieval, third-party data tools, and reflection. Built in Python 3.12 with LangChain/LangGraph and FAISS, using OpenAI gpt-4o-mini and gpt-5.2; evaluated on decision accuracy, per-scenario accuracy, rationale cosine similarity, and latency (Agentic RAG 86.5% vs 77.6% baseline overall with gpt-5.2, at ~3x latency).
+- **Notes:** Fills the underwriting-automation / agentic-workflow gap beyond the existing multi-agent data-analysis and RAG market-comparison entries, moving from retrieval to governed decision automation. Fully public code and synthetic data (Python, LangChain/LangGraph, FAISS); reruns need an OpenAI API key and depend on proprietary models (gpt-4o-mini, gpt-5.2) that may drift. arXiv preprint, not yet peer-reviewed; all data is synthetic by design.
+- **Abstract/Summary (AI generated):**
+    A Brigham Young University team builds and benchmarks three LLM architectures for straight-through underwriting of small commercial Business Owner Policies: a single-LLM baseline, a naive RAG pipeline over a synthetic 143-page underwriting guidebook, and a multi-agent Agentic RAG system with targeted retrieval, third-party data lookups, and a reflection step. On 635 synthetic applications spanning compliant, single-violation, multi-step, and missing-information scenarios, the agentic system clearly wins where reasoning is hardest — for example 84% vs 57% accuracy on irrecoverably incomplete applications — at the cost of roughly triple the latency. The paper frames the comparison around actuarial governance needs such as transparency, auditability, and human-in-the-loop escalation, and releases the full dataset, guidebook, and LangGraph implementation for reproduction.
+<br>
+
+### Mortality modeling for short-term climate stress test in France: impact of extreme heat
+- **Author:** Etienne Raynal, Stéphane Loisel
+- **Date:** 2026-06-26
+- **Resources:** [Article (Annals of Actuarial Science)](https://doi.org/10.1017/S1748499526100335)
+- **Type:** Case Study
+- **Level:** 🟨🟨⬜ Advanced
+- **Field:** Life
+- **Market/Geography:** France
+- **Primary Topics:** `Mortality Stress Testing`, `Extreme Heat Mortality`, `Gradient Boosting`, `Climate Risk`
+- **Secondary Topics:** `Hierarchical Clustering`, `Excess Mortality Modeling`, `Life Insurance`, `Scenario Generation`, `Solvency Shocks`
+- **Language(s):** English
+- **Programming Language(s):** –
+- **Methods and/or Models:** Models heat-wave excess mortality with Poisson GLM, XGBoost, and CatBoost using open meteorological/environmental data; applies agglomerative hierarchical clustering to build 89 geographically coherent environmental-vulnerability zones across mainland France; uses climatology-informed construction of extreme-weather scenarios to derive short-term mortality shocks, reporting shocks up to ~5x those set by the French regulator (ACPR).
+- **Notes:** Peer-reviewed (Annals of Actuarial Science). Distinct from the catalog's deep-learning climate-mortality entries in method (GLM/GBM plus hierarchical vulnerability clustering, not deep learning) and purpose (short-term regulatory heat-shock stress testing, finding shocks up to ~5× the French ACPR regulator's). Uses open input data but no released code. Note: first circulated as a HAL preprint dated 2025-09-30, ~9 months before this in-window journal publication.
+- **Abstract/Summary (AI generated):**
+    This peer-reviewed paper builds a granular, machine-learning-based methodology for insurers to stress-test short-term mortality against extreme-heat scenarios in France. The authors cluster mainland France into 89 environmental-vulnerability zones and model heat-wave excess mortality as a function of weather variables using a Poisson GLM benchmark alongside XGBoost and CatBoost. Climatology-informed extreme scenarios are then used to compute mortality shocks, which the authors find can be several times larger (up to roughly fivefold) than the shock prescribed by the French regulator. The work sits squarely at the AI-actuarial intersection, pairing gradient-boosting/clustering methods with a concrete life-insurance capital/stress-testing use case.
+<br>
+
+### Actuarial Causal Inference Tutorial: From Risk Measurement to Intelligent Risk Management
+- **Author:** Theresa Blümlein, Patrick Cheridito, Daniel Meier
+- **Date:** 2026-06-23
+- **Resources:** [Tutorial (GitHub Pages, Jupyter Book)](https://actuarial-data-science.github.io/ActuarialCausalInference/README.html), [Code (GitHub)](https://github.com/actuarial-data-science/ActuarialCausalInference)
+- **Type:** Tutorial
+- **Level:** 🟨🟨⬜ Advanced
+- **Field:** General
+- **Primary Topics:** `Causal Inference`, `Causal Machine Learning`, `DAGs / D-Separation`, `Propensity Scores`, `Causal Forests`
+- **Secondary Topics:** `Bayesian Causal Forests / BART`, `Doubly-Robust / Debiased Estimation`, `Discrimination-Free Pricing`, `Fairness Diagnostics`, `Sensitivity Analysis (E-Values, Rosenbaum Bounds)`, `Claims Triage`, `Health Prevention Program Evaluation`, `Prescriptive Analytics`
+- **Language(s):** English
+- **Programming Language(s):** Python
+- **Methods and/or Models:** Structured four-stage causal-ML curriculum: (1) concepts — potential outcomes, counterfactuals, confounding; (2) identification — DAGs, d-separation, backdoor/frontdoor criteria, instrumental variables; (3) inference — propensity-score methods, regression estimators, tree-based causal methods (causal trees/forests), and Bayesian approaches (BART, Bayesian Causal Forests), with debiased/doubly-robust estimation; (4) sensitivity — balance diagnostics, placebo tests, E-values, Rosenbaum bounds, partial-R² omitted-variable bias bounds, and fairness analysis. Delivered as executable Jupyter notebooks with utils.py and public CSV datasets (California DDS discrimination dataset, traffic-accident dataset). Active application notebooks: observational_data, pricing (discrimination-free premiums), claims_triage, health_interventions.
+- **Notes:** Fills the catalog's causal-inference / causal-ML gap and complements the existing fairness entries (Charpentier, SOA, MAS FEAT) with a causal discrimination-free-pricing angle. Ships public GitHub code (notebooks + `utils.py`) and public datasets (California DDS, traffic-accident) with Binder/Colab support, and four applied notebooks: observational-data evaluation, discrimination-free pricing, claims triage, and health interventions. From the Swiss Association of Actuaries' Data Science working group (authors include ETH's Patrick Cheridito) — a professional-body tutorial rather than a peer-reviewed paper.
+- **Abstract/Summary (AI generated):**
+    A hands-on tutorial from the Swiss Association of Actuaries' Data Science working group that teaches actuaries how to move from predictive to prescriptive/causal analysis using modern causal machine learning. It walks through the full causal workflow — framing treatments and counterfactuals, identifying effects via DAGs and adjustment/IV strategies, estimating them with propensity scores, causal forests and Bayesian causal forests, and validating with sensitivity and fairness diagnostics. The theory is paired with executable Python notebooks and public datasets applied to concrete insurance problems such as evaluating health-prevention programs, constructing discrimination-free premiums, and routing claims. It is authored by Theresa Blümlein, ETH professor Patrick Cheridito, and Daniel Meier, and is published as an open Jupyter Book with Binder/Colab launch support.
+<br>
+
+### On the determinants of intensity and duration in institutional long-term care in Switzerland: New insights from random forest modeling
+- **Author:** Lucien Lorenz, Joël Wagner
+- **Date:** 2026-06-20
+- **Resources:** [Article (Insurance: Mathematics and Economics)](https://doi.org/10.1016/j.insmatheco.2026.103272)
+- **Type:** Case Study
+- **Level:** 🟨🟨⬜ Advanced
+- **Field:** Health
+- **Market/Geography:** Switzerland (Canton of Geneva)
+- **Primary Topics:** `Long-Term Care Insurance`, `Random Forest`, `Random Survival Forest`
+- **Secondary Topics:** `Health Insurance`, `Care Intensity & Duration`, `Feature Importance`, `Actuarial Pricing & Reserving`, `Survival Analysis`
+- **Language(s):** English
+- **Programming Language(s):** –
+- **Methods and/or Models:** Random forests and random survival forests (Breiman-style tree ensembles; Ishwaran-Kogalur random survival forests, per the reference list) applied to identify and rank determinants of institutional LTC care intensity and duration, with variable-importance analysis. Extends this literature's prior parametric duration/intensity approaches (accelerated-failure-time and beta-regression models) using nonparametric ML on ~25 years of cantonal LTC administrative records.
+- **Notes:** Peer-reviewed (Insurance: Mathematics and Economics, open access), filling the health/LTC-with-ML gap and adding survival-ML in a domain the catalog otherwise lacks (existing survival-ML is in reserving/ReSurv and mortality). Random forest and random survival forest with variable-importance analysis on ~25 years of Geneva cantonal LTC records. The cantonal administrative data is proprietary and no code repository was found, so the empirical results are not directly reproducible.
+- **Abstract/Summary (AI generated):**
+    This peer-reviewed study applies random forest and random survival forest methods to roughly 25 years of Geneva institutional long-term-care administrative records (the EROS/PLAISIR dataset, 1998–2024) to identify and rank the drivers of two key LTC quantities: how intensively residents are cared for and how long they remain in dependence. Where earlier work in this stream modeled care duration and intensity with parametric tools such as accelerated-failure-time and beta-regression models, the authors turn to nonparametric machine learning and variable-importance analysis to surface nonlinear determinants and interactions relevant to long-term-care insurance pricing and reserving. It appears in Insurance: Mathematics and Economics (Vol. 129) and is open access under CC BY 4.0. The underlying cantonal health data is not publicly downloadable and no code repository was found, so the empirical results are not directly reproducible.
+<br>
+
+### Using Large Language Models to Generate New Features from Text Data for Loss Prediction
+- **Author:** Guojun Gan, Christopher Shultz
+- **Date:** 2026-06-15
+- **Resources:** [Article (Variance)](https://variancejournal.org/article/162423-using-large-language-models-to-generate-new-features-from-text-data-for-loss-prediction), [DOI](https://doi.org/10.66573/001c.162423)
+- **Type:** Case Study
+- **Level:** 🟨🟨⬜ Advanced
+- **Field:** P&C
+- **Market/Geography:** United States (Wisconsin Local Government Property Insurance Fund)
+- **Primary Topics:** `LLM Feature Engineering`, `Loss Prediction`, `GLM Pricing`, `Text Mining`
+- **Secondary Topics:** `GPT-4o`, `Llama-3.2`, `Prompt Engineering`, `Ordinal Classification`, `Text Embeddings`, `Property Insurance`
+- **Language(s):** English
+- **Programming Language(s):** Python
+- **Methods and/or Models:** Zero-shot prompt engineering with GPT-4o and Llama-3.2-3B to classify free-text claim descriptions into ordinal risk categories (3- and 5-level); resulting labels added as covariates to a Gamma GLM for loss severity. Validated against sentence-transformer embeddings (all-mpnet-base-v2) with UMAP and contingency-table analysis. Five-category GPT-4o labels give the best in-sample fit and out-of-sample accuracy on the Wisconsin LGPIF dataset (4,991 train 2006–2010; 1,039 test 2011).
+- **Notes:** Peer-reviewed in Variance (CAS) — adds journal-grade credibility to the LLM-feature-engineering theme the catalog otherwise covers only via a non-peer-reviewed workers'-comp entry; different line (municipal property) and an ordinal-bucketing-validated-against-embeddings framing. Uses the public Wisconsin LGPIF dataset; the paper's code footnote points only to the general CAS GitHub org (no paper-specific repo located), so hands-on reproduction needs re-implementation.
+- **Abstract/Summary (AI generated):**
+    This peer-reviewed Variance paper uses large language models as a feature-engineering engine for property-insurance loss prediction. The authors apply zero-shot prompt engineering with GPT-4o and Llama-3.2-3B to convert free-text claim descriptions into ordinal risk categories, then feed those labels as covariates into a Gamma GLM for loss severity on the public Wisconsin LGPIF dataset. They show the LLM-derived labels are semantically coherent (cross-checked against sentence-transformer embeddings and UMAP) and predictive, with five-category GPT-4o labels delivering the best in-sample fit and out-of-sample accuracy. The work is a concrete, actuarially grounded demonstration that LLM text features can improve traditional GLM pricing pipelines.
+<br>
+
+### Bridging transparency and predictive power: integrating explainable ML into actuarial modelling
+- **Author:** Michiel Luteijn, Jacky Tam, Fiona Fan
+- **Date:** 2026-06-09
+- **Resources:** [Article (British Actuarial Journal, open access)](https://doi.org/10.1017/S1357321726100440), [Code (GitHub)](https://github.com/ckjackytam/ifoa-ds-health-care-wp)
+- **Type:** Case Study
+- **Level:** 🟨🟨⬜ Advanced
+- **Field:** Life
+- **Market/Geography:** United States (life insurance, SOA ILEC experience data)
+- **Primary Topics:** `Explainable ML`, `Life Insurance Mortality`, `Hybrid GLM ML`, `Interpretable Modelling`
+- **Secondary Topics:** `XGBoost`, `Gradient Boosting`, `GAM`, `Interaction Detection`, `GLM`, `Model Governance`, `Neural Networks`
+- **Language(s):** English
+- **Programming Language(s):** Python, R
+- **Methods and/or Models:** Three hybrid explainable-ML workflows applied to US life insurance mortality experience (SOA ILEC 2012-2019): (1) interpretable boosted linear models, (2) XGBoost-informed GLM where ML surfaces structure that is fed back into a transparent GLM, and (3) a GBM-based interaction-detection workflow. Companion repo also includes a GAM study (PyGAM) with GBM interaction detection and a neural network with a custom zero-inflated Poisson loss. Emphasis on preserving interpretability, expert judgment and governance while capturing ML predictive gains.
+- **Notes:** Peer-reviewed (British Actuarial Journal, open access) and reproducible with both public code (Python + R) and public data (SOA ILEC). Adds a life-insurance mortality, governance-first angle with hybrid GLM+GBM workflows — distinct from the catalog's deep-learning mortality forecasting and its mostly non-life XAI entries — and doubles as decision guidance from the IFoA Data Science in Health & Care working party. (One companion case study needs IFoA member access; the ILEC study in the paper is fully open.)
+- **Abstract/Summary (AI generated):**
+    This peer-reviewed paper, produced by the IFoA "Techniques in Data Science in Health and Care" working party, examines how to retain the predictive gains of machine learning without sacrificing the transparency and governance that actuarial modelling requires. Using open US life insurance mortality data (SOA ILEC, 2012-2019), the authors demonstrate three hybrid techniques: interpretable boosted linear models, an XGBoost-informed GLM in which ML-discovered structure is folded back into a conventional GLM, and a gradient-boosting-driven interaction-detection workflow. The conclusion is practical: practitioners can materially improve accuracy by feeding ML insights into traditional models while keeping expert judgment and explainability in the loop. The work is open access and ships with a public GitHub repository containing both Python and R implementations against the public dataset.
+<br>
+
+### Leveraging LLMs for Unstructured Claims Data Analysis
+- **Author:** Robert D. Lieberthal, Richard Tran, Vietbao Phan, Jawand Singh, Elizabeth Sottung
+- **Date:** 2026-06-04
+- **Resources:** [Article (arXiv)](https://arxiv.org/abs/2606.06089), [Code (GitHub)](https://github.com/mdsight/llm-claims-analysis), [Article (CAS Forum)](https://forum.casact.org/article/163733-leveraging-large-language-models-for-unstructured-claims-data-analysis)
+- **Type:** Case Study
+- **Level:** 🟨🟨⬜ Advanced
+- **Field:** Health
+- **Market/Geography:** United States
+- **Primary Topics:** `LLM Feature Extraction`, `Unstructured Claims Data`, `Claims Reserving`
+- **Secondary Topics:** `Synthetic Data Generation`, `Health Insurance Claims`, `Human-in-the-Loop Validation`, `Ratemaking`, `FHIR / Medical Records`
+- **Language(s):** English
+- **Programming Language(s):** Python
+- **Methods and/or Models:** Two-stage LLM pipeline separating document-level extraction (Stage 1) from claim-level synthesis (Stage 2), built on OpenAI's API and ingesting medical records / adjuster notes (incl. FHIR bundles). Extracts 36 structured actuarial variables; 14 core variables validated by clinical expert reviewers on a 5-point Likert scale (mean scores >4.0). Includes a severity-segmented reserving demonstration reducing reserve estimation error from 6.5% to 4.0%, plus a technical specification (Appendix D) and human-in-the-loop workflow.
+- **Notes:** Fills health-claims ML and synthetic-data gaps and adds an expert-validation protocol; partial overlap with the existing LLM-feature-extraction (workers' comp) and ActuaryGPT claims-parsing entries, but the health domain, validation methodology, and quantified reserving impact (reserve error 6.5% → 4.0%) are distinct. Open Python code and synthetic data on GitHub (the real claims data is PHI and not public). CAS-funded, published in the CAS Forum — professional-body rather than a peer-reviewed journal.
+- **Abstract/Summary (AI generated):**
+    This CAS-funded study builds a two-stage large language model pipeline that turns unstructured claims text (medical records, adjuster notes) into 36 structured actuarial variables, first extracting facts at the document level and then synthesizing them at the claim level. The authors test the approach on both synthetic and real claims data and have clinical experts validate 14 core variables, reporting mean quality scores above 4.0 on a five-point scale. They then show a downstream actuarial payoff: severity-segmented analysis of the extracted variables cut reserve estimation error from 6.5% to 4.0%. The work is released with open-source Python code and synthetic datasets on GitHub and emphasizes a human-in-the-loop, governance-aware deployment posture.
+<br>
+
+### AI-Based Synthetic Medical Claims Data Generation: A Practical Guide for Actuaries
+- **Author:** Shea Parkes, Zihua She, Jianxi Su, Xiao Wang
+- **Date:** 2026-05-29
+- **Resources:** [Report (SOA)](https://www.soa.org/resources/research-reports/2026/synthetic-medical-claims-data/), [PDF](https://www.soa.org/globalassets/assets/files/resources/research-report/2026/2026-05-synthetic-claims.pdf), [Code (GitHub)](https://github.com/Society-of-actuaries-research-institute/AIT168-AI-Based-Synthetic-Medical-Claims-Data-Generation)
+- **Type:** Tutorial
+- **Level:** 🟨🟨⬜ Advanced
+- **Field:** Health
+- **Market/Geography:** US (CMS Medicare DE-SynPUF data)
+- **Primary Topics:** `Synthetic Data Generation`, `Generative AI`, `Health Insurance`, `Medical Claims`
+- **Secondary Topics:** `Transformers`, `Variational Autoencoders`, `Generative Adversarial Networks`, `Privacy Preserving ML`, `Prescription Drug Data`, `LLM`
+- **Language(s):** English
+- **Programming Language(s):** Python
+- **Methods and/or Models:** Chain-type generative framework that mirrors the hierarchical structure of healthcare data (beneficiary summary file to prescription drug event file), plus comparative treatment of variational autoencoders, generative adversarial networks, and Transformer-based sequence models for generating one year of medication fill records from beneficiary features. Also uses a pretrained LLM to bootstrap synthetic development data, and includes privacy-risk verification methods. Illustrated end-to-end on the CMS DE-SynPUF Medicare public-use claims data; reference implementation in Python (model.py/trainer.py/generator.py/data_processor.py) with included beneficiary and prescription training data.
+- **Notes:** Fills two catalog gaps — synthetic-data generation and health-insurance ML — and adds a privacy-preserving angle; the generative-model overlap with the existing Wasserstein GAN (soil subsidence) entry is only at the method level, while the health-claims domain and chain-type hierarchical framework are new. Public Python code and training data on GitHub, with a worked example on the CMS DE-SynPUF Medicare dataset. SOA Research Institute practical guide (not a peer-reviewed benchmark); treat performance claims as illustrative.
+- **Abstract/Summary (AI generated):**
+    This SOA Research Institute practical guide shows actuaries how to generate privacy-preserving synthetic medical claims data using modern generative AI. Its centerpiece is a chain-type framework that decomposes generation to match the hierarchical structure of healthcare data, and it compares this against VAEs, GANs, and Transformers, using a pretrained LLM to bootstrap development data. A worked example on the CMS DE-SynPUF Medicare dataset walks through modeling the beneficiary summary file and then a Transformer that produces a year of prescription drug fill records, with an accompanying Python codebase and training data on GitHub. The report also covers potential actuarial applications (pricing, reserving, forecasting) and dedicates a section to privacy-risk origins and verification methods.
+<br>
+
 ### Is TabPFN the Silver Bullet for Insurance Pricing?
 - **Author:** Bruno Deprez, Wouter Verbeke, Tim Verdonck
 - **Date:** 2026-05-21
@@ -227,14 +369,14 @@ A curated and continuously growing collection of AI case studies relevant to act
 ### An Interpretable Deep Learning Model for General Insurance Pricing (Actuarial NAM)  
 - **Author:** Patrick J. Laub, Duc Tu Pho, Bernard Wong  
 - **Date:** 2025-09-10  
-- **Resources:** [Article (arXiv)](https://arxiv.org/abs/2509.08467)  
+- **Resources:** [Article (arXiv)](https://arxiv.org/abs/2509.08467), [Journal (Insurance: Mathematics and Economics)](https://doi.org/10.1016/j.insmatheco.2026.103270), [Code (GitHub)](https://github.com/Pat-Laub/anam)  
 - **Type:** Case Study  
 - **Level:** 🟥🟥🟥 Expert  
 - **Field:** P&C  
 - **Primary Topics:** `Interpretable Deep Learning`, `Pricing Models`  
 - **Secondary Topics:** `Neural Additive Models`, `Explainable AI`, `Monotonicity`, `Variable Selection`  
 - **Language(s):** English  
-- **Programming Language(s):** –  
+- **Programming Language(s):** Python  
 - **Methods and/or Models:** Actuarial Neural Additive Model (ANAM), an extension of Neural Additive Models tailored to pricing: separate subnetworks or monotone lattices per covariate and interaction; hard monotonicity constraints for selected rating factors; roughness penalties for smoothness; three-stage variable and interaction selection; marginal clarity penalties for identifiability between main and interaction effects; evaluation on synthetic data and a Belgian motor third-party liability portfolio against GLM/GAM, EBMs, LocalGLMnet, GBMs, and generic neural nets.  
 - **Notes:** Designed to meet actuarial interpretability requirements (transparent main/interaction effects, sparsity, monotonicity) while matching or exceeding black-box ML models on NLL, RMSE, and MAE; provides a concrete mathematical framework for “interpretable pricing models”.  
 - **Abstract:**  
