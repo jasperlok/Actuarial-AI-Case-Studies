@@ -30,7 +30,7 @@ A curated and continuously growing collection of AI case studies relevant to act
 ### Case Study: Local LLM-Based Actuarial Report Generation
 - **Author:** Jasper Lok, Thu Hoang
 - **Date:** 2026-08-28
-- **Resources:** [Notebook](https://github.com/IAA-AITF/Actuarial-AI-Case-Studies/tree/main/case-studies/2026/CaseStudy_Local-LLM-Based-Actuarial-Report-Generation)
+- **Resources:** [Notebook](https://github.com/IAA-AITF/Actuarial-AI-Case-Studies/tree/main/case-studies/2026/case_study_local_llm_based_ctuarial_report_generation)
 - **Type:** Case Study
 - **Level:** 🟨🟨⬜ Advanced
 - **Field:** Life, P&C
