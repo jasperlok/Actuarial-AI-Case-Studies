@@ -2,8 +2,8 @@
 
 # Case Study: Local LLM-Based Actuarial Report Generation
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/IAA-AITF/Actuarial-AI-Case-Studies/blob/main/case-studies/case-studies/2026/report-generation_local-llm.ipynb)
-[![Open In Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://github.com/IAA-AITF/Actuarial-AI-Case-Studies/blob/main/case-studies/2026/report-generation_local-llm.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/IAA-AITF/Actuarial-AI-Case-Studies/blob/main/case-studies/2026/case_study_local_llm_based_actuarial_report_generation/report-generation_local-llm.ipynb)
+[![Open In Kaggle](https://kaggle.com/static/images/open-in-kaggle.svg)](https://kaggle.com/kernels/welcome?src=https://raw.githubusercontent.com/IAA-AITF/Actuarial-AI-Case-Studies/main/case-studies/2026/case_study_local_llm_based_actuarial_report_generation/report-generation_local-llm.ipynb)
 
 ## Description
 
