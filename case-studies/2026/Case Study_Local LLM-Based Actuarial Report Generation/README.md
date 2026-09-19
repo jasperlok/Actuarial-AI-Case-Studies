@@ -24,7 +24,8 @@ The notebook includes setup cells that check required packages and locate the pr
 Clone or open the project folder, install dependencies, and launch Jupyter:
 
 ```bash
-cd 2025-XX-XX-report-generation-iaa
+git clone https://github.com/IAA-AITF/Actuarial-AI-Case-Studies.git
+cd Actuarial-AI-Case-Studies/case-studies/2026/CaseStudy_Local-LLM-Based-Actuarial-Report-Generation
 pip install -r requirements.txt
 jupyter notebook report-generation_local-llm.ipynb
 ```
@@ -51,7 +52,6 @@ To configure the local generation workflow, set:
 - **`requirements.txt`** - Required Python packages for data preparation, Excel processing, charting, Word report generation, and Hugging Face generation.
 - **`Data/MAS_Form/`** - Raw MAS form workbook inputs used by the cleaning workflow.
 - **`Data/Output_MAS_G1.xlsx`** - Cleaned MAS G1 workbook consumed by the report-generation notebook.
-- **`Data/Results.xlsx`** - Supporting results workbook.
 - **`Knowledge/Mapping.xlsx`** - Company-code mapping used to identify the selected insurer.
 - **`Knowledge/List of Formula.docx`** - Actuarial formula and reference material used by the reporting workflow.
 - **`Output/`** - Generated artifacts, including the management report (`TMG_SIF_G1_HF_Management_Report.docx`), movement chart (`TMG_SIF_G1_2022_2024.png`), and commentary audit file (`TMG_SIF_hf_commentary.json`).
